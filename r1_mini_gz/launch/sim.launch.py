@@ -47,6 +47,15 @@ def generate_launch_description():
                 output="screen"
                     
                 )
+    
+    stamper = Node(
+                package="twist_stamper",
+                executable="twist_stamper",
+                remappings=[
+                    ('cmd_vel_in', 'cmd_vel'),
+                    ('cmd_vel_out', 'cmd_vel_stamped'),
+                ],
+    )
     bridge_params = os.path.join(get_package_share_directory(simulation_package), 'config', 'ros_gz_bridge.yaml')
     ros_gz_bridge = Node(
             package="ros_gz_bridge",
@@ -68,6 +77,7 @@ def generate_launch_description():
     return LaunchDescription([ 
         *launch_args,
         rsp,
+        stamper,
         gz,
         ros_gz_bridge,
         spawn_entity
