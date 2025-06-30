@@ -1,0 +1,39 @@
+<robot name="r1_mini" xmlns:xacro="https://ros.org/wiki/xacro">
+    <gazebo>
+        
+            <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+                <odom_publisher_frequency>100</odom_publisher_frequency>
+                
+                <left_joint>Front_Left_Joint</left_joint>
+                <right_joint>Front_Right_Joint</right_joint>
+
+                <left_joint>Rear_Left_Joint</left_joint>
+                <right_joint>Rear_Right_Joint</right_joint> 
+
+                <wheel_separation>${base_w}</wheel_separation>
+                <wheel_diameter>${2*wheel_radius}</wheel_diameter>
+
+                <max_wheel_torque>24</max_wheel_torque>
+                <max_linear_acceleration>1.0</max_linear_acceleration>
+
+                <topic>cmd_vel</topic>
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>true</publish_odom_tf>
+                <publish_wheel_tf>true</publish_wheel_tf>
+                <tf_topic>/${namespace}/odom_tf</tf_topic>
+                <odom_topic>/${namespace}/odom</odom_topic>
+                <frame_id>odom</frame_id>
+                <child_frame_id>base_link</child_frame_id>
+            </plugin>
+
+            <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+                <update_rate>100</update_rate>
+                <topic>/${namespace}/joint_states</topic>
+                <joint_name>Front_Left_Joint</joint_name>
+                <joint_name>Front_Right_Joint</joint_name>
+                <joint_name>Rear_Right_Joint</joint_name>
+                <joint_name>Rear_Left_Joint</joint_name>
+            </plugin>
+    
+    </gazebo>
+</robot>

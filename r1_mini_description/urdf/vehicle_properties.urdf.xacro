@@ -1,0 +1,27 @@
+<robot name="r1_mini" xmlns:xacro="https://ros.org/wiki/xacro">
+    <!-- Add properties of the vehicle here -->
+
+    <xacro:property name="namespace" value="r1_mini"/>
+
+    <!-- GENERAL PROPERTIES -->
+    <xacro:property name="M_PI" value="3.14159265358979323846"/>
+    <xacro:property name="M_PI_2" value="1.57079632679489661923"/>
+
+     <xacro:property name="base_w" value="0.3"/>
+      <xacro:property name="wheel_radius" value="0.065"/>
+
+    <!-- LIDAR PROPERTIES -->
+    <xacro:property name="lidar_x" value="0.13"/>
+    <xacro:property name= "lidar_y" value="0.0"/>
+    <xacro:property name="lidar_z" value = "0.2"/>
+    
+    <!-- Materials -->
+    <material name="tire_mat">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+    </material>
+
+
+
+
+
+</robot>

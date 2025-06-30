@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="r1_mini" xmlns:xacro="https://ros.org/wiki/xacro">
+    <xacro:property name="package_name" value = "r1_mini_description"/>
+    <xacro:arg name="use_control" default="false"/>
+
+    <xacro:include filename="$(find r1_mini_description)/urdf/vehicle_properties.urdf.xacro"/>
+    <!-- Consists of the build of the robot -->
+       
+
+    <xacro:include filename="$(find r1_mini_description)/urdf/robot_core.urdf.xacro"/>
+
+    <!-- Cotains the properties of the Lidar and its sim file -->
+    <xacro:include filename="$(find r1_mini_description)/urdf/lidar.urdf.xacro"/>
+    <xacro:include filename="$(find r1_mini_description)/urdf/gz_control.urdf.xacro"/>
+    <xacro:if value="$(eval use_control)">
+    </xacro:if>
+
+
+    <xacro:unless value="$(eval use_control)">
+            
+    </xacro:unless>
+</robot>

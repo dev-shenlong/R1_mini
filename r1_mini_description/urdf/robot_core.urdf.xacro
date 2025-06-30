@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="r1_mini" xmlns:xacro="https://ros.org/wiki/xacro">
+  <link name="base_link"/>
+  <joint name="chassis_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="chassis_link"/>
+  </joint>
+  <link
+    name="chassis_link">
+    <inertial>
+      <origin
+        xyz="-0.0072585 0.00021794 0.0505"
+        rpy="${-M_PI_2} 0 0" />
+      <mass
+        value="2.299" />
+      <inertia
+        ixx="0.014892"
+        ixy="-3.1315E-05"
+        ixz="-0.00079874"
+        iyy="0.030142"
+        iyz="-1.1612E-05"
+        izz="0.038103" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 0" />
+      <geometry>
+        <mesh
+            filename="file://$(find r1_mini_description)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <link
+    name="Front_Right">
+    <inertial>
+      <origin
+        xyz="-0.0301427416311952 7.57005583509884E-07 7.21950765836255E-09"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <mass
+        value="0.127574349080822" />
+      <inertia
+        ixx="0.000330439598370738"
+        ixy="6.96644540934082E-10"
+        ixz="7.04213102314889E-11"
+        iyy="0.000211079080231523"
+        iyz="6.77744193571168E-11"
+        izz="0.000211077807899093" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Front_Left.STL" />
+      </geometry>
+      <material name="tire_mat"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Front_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_Right_Joint"
+    type="continuous">
+    <origin
+      xyz="0.13001 -0.11373 0.0278"
+       rpy="0.0 0.0 ${0.0}" /> 
+
+       <!-- rpy="0.99209 1.5708 0" -->
+    <parent
+      link="chassis_link" />
+    <child
+      link="Front_Right" />
+    <axis
+      xyz="0 1 0" />
+
+  </joint>
+  
+  <link
+    name="Front_Left">
+    <inertial>
+      <origin
+        xyz="-0.0301427429143084 7.56920671918238E-07 4.65245333231001E-09"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <mass
+        value="0.127574366710098" />
+      <inertia
+        ixx="0.000330439600246073"
+        ixy="7.12175785491565E-10"
+        ixz="6.2702240729417E-11"
+        iyy="0.000211079082879329"
+        iyz="6.74051726571147E-11"
+        izz="0.000211077809633461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Front_Right.STL" />
+      </geometry>
+      <material name="tire_mat"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Front_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_Left_Joint"
+    type="continuous">
+    <origin
+      xyz="0.13001 0.11369 0.0278"
+      rpy="0.0 0.0 ${0.0}" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="Front_Left" />
+    <axis
+      xyz="0 1 0" />
+  
+  </joint>
+  <link
+    name="Rear_Right">
+    <inertial>
+      <origin
+        xyz="-0.0301427423896141 7.57982494381526E-07 6.66198089749326E-09"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <mass
+        value="0.127574365824395" />
+      <inertia
+        ixx="0.000330439599591242"
+        ixy="6.97412188694826E-10"
+        ixz="6.99793702990858E-11"
+        iyy="0.000211079081175557"
+        iyz="6.83178450402587E-11"
+        izz="0.000211077809455173" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Rear_Left.STL" />
+      </geometry>
+      <material name="tire_mat"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Rear_Left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_Right_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.12999 -0.11373 0.0278"
+      rpy="0.0 0 ${0.0}" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="Rear_Right" />
+    <axis
+      xyz="0 1 0" />
+   
+  </joint>
+  <link
+    name="Rear_Left">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <mass
+        value="0.127574366710098" />
+      <inertia
+        ixx="0.000330439600246073"
+        ixy="7.12175785491565E-10"
+        ixz="6.2702240729417E-11"
+        iyy="0.000211079082879329"
+        iyz="6.74051726571147E-11"
+        izz="0.000211077809633461"  />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Rear_Right.STL" />
+      </geometry>
+      <material name="tire_mat"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="${-M_PI_2} 0 ${-M_PI_2}" />
+      <geometry>
+        <mesh
+          filename="file://$(find r1_mini_description)/meshes/Rear_Right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_Left_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.12999 0.11369 0.0278"
+      rpy= "0.0 0 ${0.0}"
+     />
+      <!-- rpy="0.99209 -1.5708 0"  -->
+    <parent
+      link="chassis_link" />
+    <child
+      link="Rear_Left" />
+    <axis
+      xyz="0 1 0" />
+  
+  </joint> -->
+</robot>
