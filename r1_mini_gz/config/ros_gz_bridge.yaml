@@ -27,8 +27,8 @@
   gz_type_name: "gz.msgs.Pose_V"
   direction: GZ_TO_ROS
 
-- topic_name: "/r1_mini/lidar"
-  gz_topic_name: "/r1_mini/lidar/points"
-  ros_type_name: "sensor_msgs/msg/PointCloud2"
-  gz_type_name: "ignition.msgs.PointCloudPacked"
+- ros_topic_name: "/r1_mini/lidar"
+  gz_topic_name: "r1_mini/lidar"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
   direction: GZ_TO_ROS
